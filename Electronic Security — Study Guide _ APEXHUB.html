@@ -1,0 +1,665 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Electronic Security — Study Guide | APEXHUB</title>
+<style>
+:root{
+  --bg:#f5f7fa;--bg2:#ffffff;--text:#121821;--text2:#53606f;--line:#dde3ea;
+  --accent:#1d4e89;--accent2:#b3471f;--code:#eef2f7;--tag-src:#1d4e89;--tag-plain:#1f7a5c;--tag-ex:#b3471f;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1420;--bg2:#161e2c;--text:#e7edf5;--text2:#9aacc0;--line:#283245;--accent:#6ea8e0;--accent2:#e39a6e;--code:#1c2536;--tag-src:#6ea8e0;--tag-plain:#6fcfa6;--tag-ex:#e39a6e;}}
+:root[data-theme="dark"]{--bg:#0e1420;--bg2:#161e2c;--text:#e7edf5;--text2:#9aacc0;--line:#283245;--accent:#6ea8e0;--accent2:#e39a6e;--code:#1c2536;--tag-src:#6ea8e0;--tag-plain:#6fcfa6;--tag-ex:#e39a6e;}
+html{scroll-padding-top:70px;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;}
+header{position:sticky;top:0;z-index:50;background:var(--bg2);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;}
+.hdr-row{display:flex;align-items:center;gap:10px;max-width:1040px;margin:0 auto;}
+.brand{font-weight:800;font-size:15px;white-space:nowrap;}
+.brand span{color:var(--accent);}
+#search{flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text);font-size:14px;}
+#theme-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:6px;padding:8px 10px;cursor:pointer;white-space:nowrap;}
+nav.topics{display:flex;gap:6px;overflow-x:auto;max-width:1040px;margin:8px auto 0;font-size:11.5px;}
+nav.topics a{white-space:nowrap;color:var(--text2);text-decoration:none;padding:5px 9px;border-radius:14px;border:1px solid var(--line);}
+nav.topics a:hover{color:var(--accent);border-color:var(--accent);}
+main{max-width:860px;margin:0 auto;padding:20px 16px 80px;}
+.masthead{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+h1.title{font-size:26px;margin:2px 0 6px;}
+p.lecturer-credit{font-size:13.5px;font-weight:700;color:var(--accent);margin:0 0 8px;}
+p.tagline{font-size:15px;color:var(--text2);margin:0 0 14px;}
+.meta-strip{font-size:12.5px;color:var(--text2);background:var(--code);border-radius:8px;padding:10px 14px;margin:0 0 18px;}
+.howto{background:var(--code);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 30px;font-size:13.5px;}
+.howto b{color:var(--accent);}
+.topic{border-top:3px solid var(--accent);padding-top:6px;margin-top:58px;}
+.topic:first-of-type{margin-top:10px;}
+.topic-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.lecturer-chip{font-size:10px;font-weight:700;background:var(--code);color:var(--text2);padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;}
+.topic h2{font-size:20px;margin:4px 0 6px;}
+.topic .dek{font-size:14px;color:var(--text2);margin:0 0 16px;}
+.topic h3.sub-h{font-size:15.5px;margin:26px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line);}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-bottom:6px;}
+.tag.src{background:color-mix(in srgb,var(--tag-src) 18%,transparent);color:var(--tag-src);}
+.tag.plain{background:color-mix(in srgb,var(--tag-plain) 18%,transparent);color:var(--tag-plain);}
+.tag.ex{background:color-mix(in srgb,var(--tag-ex) 18%,transparent);color:var(--tag-ex);}
+blockquote.lecturer{border-left:3px solid var(--tag-src);margin:0 0 14px;padding:2px 0 2px 14px;font-style:italic;}
+.plain-box{padding:8px 12px;border-left:3px solid var(--tag-plain);background:var(--code);border-radius:0 6px 6px 0;margin:0 0 14px;font-size:14px;}
+.example-box{padding:8px 12px;border-left:3px solid var(--tag-ex);background:var(--code);border-radius:0 6px 6px 0;margin:0 0 14px;font-size:14px;}
+ul.keypts{margin:0 0 14px;padding-left:20px;}ul.keypts li{margin-bottom:5px;}
+table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;display:block;overflow-x:auto;white-space:nowrap;}
+table th,table td{border:1px solid var(--line);padding:6px 9px;text-align:left;white-space:normal;}
+table th{background:var(--code);font-weight:700;}
+.revision{background:var(--code);border-radius:8px;padding:14px 16px;margin:22px 0;}
+.revision h3{margin-top:0;font-size:14.5px;}
+.likely-q{border:1px solid var(--line);border-left:4px solid var(--tag-plain);border-radius:8px;margin-bottom:14px;background:var(--bg2);padding:12px 16px;}
+.likely-q .qtext{font-size:14.5px;margin:4px 0 8px;font-weight:700;}
+.qa-answer{font-size:13.5px;margin-bottom:2px;}
+.qa-meta{font-size:11px;color:var(--text2);}
+footer{max-width:860px;margin:40px auto 60px;padding:16px;font-size:12px;color:var(--text2);border-top:1px solid var(--line);}
+.hidden{display:none !important;}
+.top-link{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:16px;background:var(--accent);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.widget{border:1px solid var(--line);border-radius:10px;background:var(--bg2);padding:14px;margin:0 0 18px;}
+.wlabel{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.widget p.wnote{color:var(--text2);font-size:12px;margin:4px 0 10px;}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.tabs button{border:1px solid var(--line);background:var(--bg);color:var(--text2);border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer;}
+.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.info-panel{border:1px dashed var(--line);border-radius:8px;padding:10px 12px;font-size:13px;min-height:38px;background:var(--code);}
+.btnrow{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+.btnrow button{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:6px;padding:7px 14px;font-size:12.5px;cursor:pointer;}
+.btnrow button.secondary{background:var(--bg);color:var(--accent);}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;}
+.flow-step{border:2px solid var(--line);border-radius:8px;padding:8px 10px;font-size:11.5px;text-align:center;min-width:86px;background:var(--code);transition:all .2s;}
+.flow-step.active{border-color:var(--accent);background:var(--accent);color:#fff;font-weight:700;}
+.flow-arrow{color:var(--text2);font-size:16px;}
+.pillar-grid,.layer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:10px;}
+.pillar-card,.layer-item{border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:12px;background:var(--code);cursor:pointer;}
+.pillar-card.active{border-color:var(--accent);background:var(--bg2);}
+.layer-item{display:flex;gap:7px;align-items:flex-start;}
+.layer-num{background:var(--accent);color:#fff;border-radius:50%;width:18px;height:18px;flex:0 0 auto;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+details.expand{border:1px solid var(--line);border-radius:8px;margin-bottom:14px;background:var(--bg2);}
+details.expand summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;list-style:none;color:var(--accent);}
+details.expand summary::-webkit-details-marker{display:none;}
+details.expand summary:before{content:"▶ ";}
+details.expand[open] summary:before{content:"▼ ";}
+.expand-body{padding:0 14px 14px;}
+@media(max-width:600px){.hdr-row{flex-wrap:wrap;}.brand{width:100%;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-row">
+    <div class="brand">APEXHUB <span>/ Electronic Security</span></div>
+    <input id="search" type="text" placeholder="Search: encryption, PKI, firewall, G-8, pillars..." aria-label="Search study guide">
+    <button id="theme-btn" aria-label="Toggle theme">◐</button>
+  </div>
+  <nav class="topics" id="topic-nav"></nav>
+</header>
+
+<main id="main">
+<div class="masthead">Course Notes — Electronic Security</div>
+<h1 class="title">Electronic Security — Study Guide</h1>
+<p class="lecturer-credit">Lecturers: Ms G.H Adeoba · Mrs O.O Akande · Mr O.I Olatunde · Dr M.O Folami</p>
+<p class="tagline">E-security policy, risk, cyber crime law, document security and workplace tool safety — 12 topics distilled for revision and exams, in the lecturers' own wording.</p>
+<div class="meta-strip">Covers: Topics 1–12, from "What is Electronic Security?" through "Protecting Your Resources" · Compiled by APEXHUB from the complete course notes</div>
+<div class="howto"><b>📖 How to use this guide:</b> Each topic header shows which lecturer taught it. Tap any <b>▶ Click to expand</b> box for deeper detail. Tap the interactive widgets (Four Pillars, Twelve Layers, Encryption flow, Digital Signature steps) to explore how each process works. Likely exam questions sit as visible cards at the end of each topic group. Nothing here replaces your original notes — it organises and distils them.</div>
+
+<!-- TOPIC 1 -->
+<section class="topic" id="t1" data-kw="what is electronic security soft infrastructure hard infrastructure risk management four pillars">
+<div class="topic-eyebrow">Topic 1 <span class="lecturer-chip">Ms G.H Adeoba</span></div>
+<h2>What is Electronic Security?</h2>
+<p class="dek">Definition, why it matters for e-finance, and the four pillars of a public-policy response.</p>
+
+<span class="tag src">Source</span>
+<blockquote class="lecturer">Speaking broadly, electronic security (e-security) is any tool, technique, or process used to protect a system's information assets. E-security enhances or adds value to an unprotected network, and is composed of soft and hard infrastructures.</blockquote>
+<div class="plain-box"><span class="tag plain">Plain English</span>E-security is everything — policies and technology — that keeps a computer system and its data safe from people who shouldn't have access to it.</div>
+<ul class="keypts">
+<li><b>Soft infrastructure</b> — policies, processes, protocols and guidelines that protect the system and data from compromise.</li>
+<li><b>Hard infrastructure</b> — the hardware and software needed to protect the system/data from threats, whether from inside or outside the organization.</li>
+<li>Security should be <b>proportional</b> to the value of the activity it protects — it is fundamentally a <b>risk-management and risk-mitigation tool</b>, not an end in itself.</li>
+<li>Services in this growing industry: active content filtering, firewalls, intrusion detection, penetration testing, cryptographic tools, authentication mechanisms.</li>
+</ul>
+
+<h3 class="sub-h">Why E-Security Matters for Finance</h3>
+<p>As banking moves online (projected to approach 50% in industrial countries, rising from roughly 1% to 10% in emerging markets), trust and confidence become essential infrastructure. Because weak regulatory environments in one country can be exploited to attack institutions in another, the systemic risk of attacks increases as markets integrate — and <b>emerging markets, with the least financial and institutional depth, are the most vulnerable</b>.</p>
+
+<h3 class="sub-h">The Problems of Economic Incentives</h3>
+<ul class="keypts">
+<li>A small number of vendors supply interlinked services to many e-finance providers, raising competition-policy and conflict-of-interest questions.</li>
+<li>Telecoms, energy and financial services are <b>critical infrastructures</b> — disruption causes significant economic damage, so there is a public-interest case for government regulation.</li>
+<li><b>Market failure</b>: inadequate incentives exist to report e-security breaches accurately — timely, accurate reporting with strong penalties is needed.</li>
+<li>The Internet makes financial-service access <b>global and borderless</b>, so risk mitigation requires cooperation within and between countries.</li>
+<li>Policy must balance competing concerns — e-security is one part of risk management, not an end in itself; tradeoffs exist between cost, bank size, and sophistication of security.</li>
+</ul>
+
+<h3 class="sub-h">Interactive: The Four Pillars of E-Security Policy</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap each pillar</div>
+<p class="wnote">These four pillars recur throughout the course (Topics 1 and 6–9) as the backbone of any e-security public-policy framework.</p>
+<div class="pillar-grid" id="pillarGrid"></div>
+<div class="info-panel" id="pillarInfo">Tap a pillar above.</div>
+</div>
+
+<div class="revision"><h3>📋 Quick Revision — Topic 1</h3>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Soft infrastructure</td><td>Policies, processes, protocols, guidelines</td></tr>
+<tr><td>Hard infrastructure</td><td>Hardware/software that protects system and data</td></tr>
+<tr><td>Risk-proportional security</td><td>The degree of e-security should match the value of the activity it protects</td></tr>
+<tr><td>Pillar 1</td><td>Strengthening legal, regulatory and enforcement framework</td></tr>
+<tr><td>Pillar 2</td><td>Improving external monitoring of e-security risks</td></tr>
+<tr><td>Pillar 3</td><td>Establishing public/private partnerships</td></tr>
+<tr><td>Pillar 4</td><td>Strengthening internal monitoring and business incentives</td></tr>
+</table></div>
+</section>
+
+<!-- TOPIC 2 -->
+<section class="topic" id="t2" data-kw="security survey electronic crime cyber crime statistics csi fbi reporting">
+<div class="topic-eyebrow">Topic 2 <span class="lecturer-chip">Ms G.H Adeoba</span></div>
+<h2>Security Survey of Electronic Crime</h2>
+<p class="dek">How bad is the problem, and why do so few organizations report it?</p>
+
+<h3 class="sub-h">The Numbers (as supplied)</h3>
+<table><tr><th>Finding</th><th>Figure</th></tr>
+<tr><td>Attacks on servers (2000→2001)</td><td>Doubled</td></tr>
+<tr><td>US organizations detecting security breaches (2002 CSI/FBI survey)</td><td>90%</td></tr>
+<tr><td>Organizations reporting serious breaches (theft, fraud, DoS, network compromise) in 2001</td><td>70%</td></tr>
+<tr><td>Organizations citing the Internet connection as the critical point of attack</td><td>84%</td></tr>
+<tr><td>Total annual losses, 251 organizations (2003 CSI/FBI survey)</td><td>~$202 million</td></tr>
+<tr><td>Hack attacks targeting the financial sector (IDC)</td><td>&gt;57%</td></tr>
+<tr><td>Loss events, 89 international banks (BIS, 2002)</td><td>47,000 events</td></tr>
+<tr><td>Of those, occurring in retail banking</td><td>60%</td></tr>
+<tr><td>Of those, attributed to external fraud</td><td>&gt;42%</td></tr>
+</table>
+
+<h3 class="sub-h">Four Frequent Problem Areas</h3>
+<ul class="keypts"><li>Insider abuse</li><li>Identity theft</li><li>Fraud</li><li>Breaking and entering (hacking)</li></ul>
+
+<h3 class="sub-h">Five Reasons Organizations Don't Report Intrusions (2001 CSI/FBI Survey, as supplied)</h3>
+<ol class="keypts">
+<li>Negative publicity</li>
+<li>Negative information competitors would use to their advantage (e.g. to steal customers)</li>
+<li>Lack of awareness that they could report events</li>
+<li>Decision that a civil remedy seemed best</li>
+<li>Fear among IT personnel of reporting incidents because of job security</li>
+</ol>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Give three statistics from the course notes that show the scale of electronic crime, and explain why under-reporting is a persistent problem.</p>
+<div class="qa-answer">(e.g. 90% of US organizations detected breaches in 2002; 70% reported serious breaches in 2001; $202 million in losses across 251 organizations in 2003.) Under-reporting persists because of fear of negative publicity, competitors exploiting the information, lack of awareness of reporting channels, preference for a civil remedy, and IT staff fearing for their job security.</div>
+<div class="qa-meta">📍 See Topic 2 → The Numbers / Five Reasons</div></div>
+</section>
+
+<!-- TOPIC 3 -->
+<section class="topic" id="t3" data-kw="decomposing risks electronic transactions systemic operational identity theft fraud money laundering credit quality failure resolution e-gold">
+<div class="topic-eyebrow">Topic 3 <span class="lecturer-chip">Ms G.H Adeoba</span></div>
+<h2>Decomposing the Risks Associated with Electronic Transactions</h2>
+<p class="dek">Money laundering, E-gold, and the six risk categories of e-finance.</p>
+
+<h3 class="sub-h">Money Laundering &amp; E-gold</h3>
+<span class="tag src">Source</span>
+<blockquote class="lecturer">Former IMF Director Michel Camdessus estimated the global volume of money laundering at between two to five percent of global GDP, a range encompassing $600 billion to $1.8 trillion.</blockquote>
+<p><b>E-gold</b> was an electronic currency, 100% backed by gold bullion, operating in units of weight rather than national currency — used as an example of how a "non-financial institution" can become a de facto money remitter with no real records, few diligence standards, and no suspicious-activity reporting, based in jurisdictions (e.g. Luxembourg) with strong secrecy laws.</p>
+
+<h3 class="sub-h">The Six Risk Categories</h3>
+<table><tr><th>Risk</th><th>What it means (as supplied)</th></tr>
+<tr><td><b>Systemic Risk</b></td><td>Intrusion/interruption in a payment system's electronic messaging can create system-wide exposure; concentration of hosting services in one provider is a single point of failure</td></tr>
+<tr><td><b>Operational Risk</b></td><td>Interruptions of service and loss of critical information; extortion and reputation risk often not accounted for in operational-risk allocations</td></tr>
+<tr><td><b>Identity Theft, Fraud &amp; Extortion</b></td><td>Hacker penetration often leads to extortion demands; growth likely understated due to under-reporting</td></tr>
+<tr><td><b>Money Laundering</b></td><td>Internet anonymity makes "know thy customer" (FATF Principle XIII) difficult; special providers like E-gold facilitate electronic laundering</td></tr>
+<tr><td><b>Credit Quality Deterioration</b></td><td>A severe DoS attack or long intrusion can cripple operations, damage reputation and compromise credit standing</td></tr>
+<tr><td><b>Risk in Failure Resolution</b></td><td>Closing a failed Internet-based bank is hard to define/implement, especially with offshore servers; claimants' rights may be compromised if digital asset records aren't preserved</td></tr>
+</table>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Explain systemic risk and operational risk in the context of e-security, with an example of each.</p>
+<div class="qa-answer">Systemic risk is the risk that an intrusion in one payment system's electronic messaging creates exposure across the entire interconnected system — e.g. a single hosting provider serving multiple banks becomes a single point of failure. Operational risk is the risk of service interruption or loss of critical information from inadequate e-security, including extortion and reputation risk that are not usually captured in standard operational-risk allocations.</div>
+<div class="qa-meta">📍 See Topic 3 → The Six Risk Categories</div></div>
+</section>
+
+<!-- TOPIC 4 -->
+<section class="topic" id="t4" data-kw="emerging markets barriers e-security implementation risk management framework">
+<div class="topic-eyebrow">Topic 4 <span class="lecturer-chip">Mrs O.O Akande</span></div>
+<h2>E-security in Emerging Markets</h2>
+<p class="dek">Five barriers that stop developing countries from implementing effective e-security.</p>
+
+<h3 class="sub-h">Barriers to Implementing E-Security (as supplied)</h3>
+<ol class="keypts">
+<li><b>Rapid technological growth without proper regard to security</b> — technologies like wireless adopted without understanding the risks; over-reliance on single "silver bullet" solutions (e.g. PKI) instead of a multi-layered approach.</li>
+<li><b>Lack of education on electronic risks</b> for regulators, supervisors, system administrators and consumers — weakens trust and inhibits e-commerce.</li>
+<li><b>Lack of institutional infrastructure</b> — legal, regulatory and law-enforcement capacity is weak or absent, and even existing regulation may not be enforced.</li>
+<li><b>Lack of social capital and technological "brain drain."</b></li>
+<li><b>High industry concentration in telecommunications</b> — hosting/service provision often sits with one or a few entities, creating a single point of failure and conflicts of interest.</li>
+</ol>
+
+<div class="plain-box"><span class="tag plain">Plain English</span>Developing countries often adopt new technology faster than they can secure it, and don't have enough trained people, laws, or independent providers to fix the gap.</div>
+</section>
+
+<!-- TOPIC 5 -->
+<section class="topic" id="t5" data-kw="public interest e-security market failure regulation g8 critical infrastructure">
+<div class="topic-eyebrow">Topic 5 <span class="lecturer-chip">Mrs O.O Akande</span></div>
+<h2>The Public Interest and E-Security</h2>
+<p class="dek">Four arguments for why government has a legitimate role in regulating e-security.</p>
+<ol class="keypts">
+<li><b>Critical infrastructure protection</b> — financial services and payment systems are integral to a country's economic infrastructure; a breach can ripple into other infrastructures (e.g. telecoms hosting affecting banking).</li>
+<li><b>Classic market failure</b> — financial providers have inadequate incentives to accurately report intrusions (reputation damage), so insurance markets can't price risk fairly; there is an asymmetric-information problem between technology buyers and vendors.</li>
+<li><b>Increasing returns to scale</b> — IT markets tend toward concentration, requiring standardization/coordination, an effect magnified in smaller emerging markets (sometimes with government-owned telecom providers).</li>
+<li><b>Borderless, global reach of the Internet</b> — mitigating risk requires unprecedented collective action within and between countries, which cannot be solved by private cooperation alone.</li>
+</ol>
+<div class="plain-box"><span class="tag plain">Plain English</span>Because an e-security failure in one company can hurt the whole financial system — and because companies have incentives to hide breaches rather than report them — government has a real reason to step in and regulate.</div>
+</section>
+
+<!-- TOPIC 6 -->
+<section class="topic" id="t6" data-kw="e-security industry g-8 principles critical information infrastructure vendors">
+<div class="topic-eyebrow">Topic 6 <span class="lecturer-chip">Mrs O.O Akande</span></div>
+<h2>The Electronic Security Industry and G-8 Principles</h2>
+<p class="dek">The growing e-security vendor industry, and the G-8's eleven principles for protecting critical information infrastructure.</p>
+<p>The e-security industry spans active content filtering, intrusion detection, firewalls, penetration testing, encryption and authentication services. High cross-ownership between e-security and e-finance providers raises competition-policy concerns, and converging technologies (PC, landline, wireless, PDA) create new points of vulnerability — especially where a message "leaps" from one channel to another.</p>
+
+<h3 class="sub-h">G-8's Eleven Principles for Protecting Critical Information Infrastructure (as supplied)</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Step through the principles</div>
+<div class="btnrow">
+  <button id="g8Prev" class="secondary">◀ Prev</button>
+  <button id="g8Next">Next ▶</button>
+</div>
+<div class="info-panel" id="g8Info"></div>
+</div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: List and briefly explain any four of the G-8 principles for protecting critical information infrastructure.</p>
+<div class="qa-answer">Any four of: emergency warning networks for cyber vulnerabilities; raising stakeholder awareness; identifying interdependencies among infrastructures; promoting public-private partnerships to share information; maintaining crisis communication networks; ensuring data-availability policies protect infrastructure; facilitating attack tracing and cross-border disclosure; conducting training/exercises; ensuring adequate laws (e.g. the Council of Europe Cybercrime Convention) and trained personnel; international cooperation; and promoting certified security R&D.</div>
+<div class="qa-meta">📍 See Topic 6 → G-8's Eleven Principles</div></div>
+</section>
+
+<!-- TOPIC 7 -->
+<section class="topic" id="t7" data-kw="tradeoffs security quality of service privacy technological innovation costs">
+<div class="topic-eyebrow">Topic 7 <span class="lecturer-chip">Mr O.I Olatunde</span></div>
+<h2>Tradeoffs: Security, Quality of Service, Privacy, Innovation, Costs</h2>
+<p class="dek">Four essential tradeoffs that any e-security policy must balance.</p>
+<table><tr><th>Tradeoff</th><th>What it means (as supplied)</th></tr>
+<tr><td><b>a. Security and Costs</b></td><td>Security should be proportional to transaction value — no case for expensive security (e.g. PKI) on small-value transactions when simpler authentication (tokens) suffices</td></tr>
+<tr><td><b>b. Security and Quality of Service</b></td><td>More complex security (e.g. PKI) can slow transactions; but confidence in security is itself an aspect of service quality</td></tr>
+<tr><td><b>c. Security and Technological Innovation</b></td><td>Rigid standards can stifle innovation — the concept of <b>technology neutrality</b> matters when drafting legislation (e.g. defining "electronic signature" carefully)</td></tr>
+<tr><td><b>d. Security and Privacy</b></td><td>More e-security can conflict with user privacy (e.g. tracking/verifying movement vs. anonymity in a trading strategy); the right balance is often culturally determined</td></tr>
+</table>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Explain the tradeoff between security and technological innovation.</p>
+<div class="qa-answer">Standards and guidelines are necessary for effective e-security, but rigid or non-neutral standards can stifle innovation if new technologies can't meet them. The course notes stress "technology neutrality" — for example, an electronic signature must be defined carefully enough not to preempt the use of alternative technologies — so legislation should remain flexible as technology evolves.</div>
+<div class="qa-meta">📍 See Topic 7 → c. Security and Technological Innovation</div></div>
+</section>
+
+<!-- TOPIC 8 -->
+<section class="topic" id="t8" data-kw="roles private public sectors e-security regulation monitoring awareness education">
+<div class="topic-eyebrow">Topic 8 <span class="lecturer-chip">Mr O.I Olatunde</span></div>
+<h2>The Roles of the Private and Public Sectors in E-Security</h2>
+<p class="dek">What each sector is responsible for.</p>
+
+<h3 class="sub-h">a. Roles of the Private Sector (as supplied)</h3>
+<ol class="keypts">
+<li>Secure its own electronic operations as ordinary business practice — internal monitoring is the first line of defence.</li>
+<li>Cooperate with academic institutions and governments to improve public education.</li>
+<li>Cooperate with law enforcement and supervisory authorities, including confidentiality guarantees when sharing breach information.</li>
+<li>Build internal governance/management structures (e.g. appoint a <b>CISO</b> — Chief Information Security Officer) and use industry/self-regulatory associations to set minimum standards.</li>
+</ol>
+
+<h3 class="sub-h">b. Roles of the Public Sector (as supplied)</h3>
+<ol class="keypts">
+<li><b>Regulation</b> — defining liability of parties/governance standards, enforceable legal concepts across borders, and standards/certification processes.</li>
+<li><b>Monitoring</b> — supervision of e-finance providers, of private monitoring agents (insurers, credit-rating agencies), and of certification/technology providers.</li>
+<li><b>Promoting awareness and education</b> — ongoing training and coordination between universities, government and the corporate sector worldwide.</li>
+</ol>
+<div class="plain-box"><span class="tag plain">Plain English</span>Companies must secure themselves and be honest about breaches; government must set the rules, check that companies follow them, and help everyone understand the risks.</div>
+</section>
+
+<!-- TOPIC 9 -->
+<section class="topic" id="t9" data-kw="payment systems privacy law cyber crime money transmitters isp liability">
+<div class="topic-eyebrow">Topic 9 <span class="lecturer-chip">Mr O.I Olatunde</span></div>
+<h2>Security of Payment Systems and Privacy Law</h2>
+<p class="dek">Privacy law approaches, cyber crime jurisdiction, and the under-regulation of money transmitters and ISPs.</p>
+
+<h3 class="sub-h">Two Approaches to Privacy Consent</h3>
+<table><tr><th>Approach</th><th>Meaning</th><th>Used by</th></tr>
+<tr><td>Opt-out</td><td>Consent is assumed unless the person says no</td><td>United States (financial activity)</td></tr>
+<tr><td>Opt-in</td><td>No use of information is assumed unless the person consents</td><td>United States (medical information); European Union (all areas, per the 1990 EU Data Collection Directive)</td></tr>
+</table>
+<p>Minimum privacy-law principles (Fair Information Practice Principles, adopted by the US Federal Trade Commission): <b>notice, choice, access, and consent.</b></p>
+
+<h3 class="sub-h">Cyber Crime &amp; Jurisdiction</h3>
+<ul class="keypts">
+<li>A December 2000 McConnell International survey of 52 countries found a "patchwork of outdated and inconsistent laws" effectively shielding cyber criminals from prosecution.</li>
+<li>April 2002: unauthorized access to over 260,000 California state personnel files took six weeks to discover — California's response, Senate Bill 1386 (effective 1 July 2003), was the first US law mandating breach notification.</li>
+<li>2001: the Council of Europe's first international treaty on cyber crime addressed copyright infringement, computer-related fraud, child pornography and network security violations.</li>
+<li>Ukraine and Belarus were cited as major staging grounds for organized hacker syndicates due to lack of cyber crime legislation.</li>
+</ul>
+
+<h3 class="sub-h">Money Transmitters and ISPs</h3>
+<p>Money transmitters (money orders, wire transfers, currency exchange, check-cashing) and ISPs ("common carriers") are largely <b>unregulated and not legally liable</b> for the services they provide, even as they become more central to the payments system. Recommendation: legislation requiring them to be secure, post bond, and accept liability — possibly built on the <b>Uniform Money Services Business Act.</b></p>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Compare the "opt-in" and "opt-out" approaches to privacy consent, and state which bodies use which.</p>
+<div class="qa-answer">Opt-out assumes consent to use personal information unless the individual affirmatively objects — the US uses this for financial activity. Opt-in assumes no consent unless the individual affirmatively gives it — the US uses this for medical information, and the EU uses it across the board, as set out in its 1990 Data Collection Directive. Both should, at minimum, embrace the Fair Information Practice Principles: notice, choice, access and consent.</div>
+<div class="qa-meta">📍 See Topic 9 → Two Approaches to Privacy Consent</div></div>
+</section>
+
+<!-- TOPIC 10 -->
+<section class="topic" id="t10" data-kw="hand tools powered tools hazards safety guards electric pneumatic hydraulic jacks">
+<div class="topic-eyebrow">Topic 10 <span class="lecturer-chip">Dr M.O Folami</span></div>
+<h2>Hand Tools and Powered Tools</h2>
+<p class="dek">Workplace tool-safety hazards, guards, and rules by tool power source.</p>
+
+<h3 class="sub-h">Five Basic Safety Rules (as supplied)</h3>
+<ul class="keypts">
+<li>Keep all tools in good condition with regular maintenance.</li>
+<li>Use the right tool for the job.</li>
+<li>Examine each tool for damage before use and do not use damaged tools.</li>
+<li>Operate tools according to the manufacturer's instructions.</li>
+<li>Provide and properly use the right personal protective equipment.</li>
+</ul>
+
+<h3 class="sub-h">Guards &amp; Operating Controls</h3>
+<p>Exposed moving parts (belts, gears, shafts, pulleys, sprockets, spindles, drums, flywheels, chains) must be guarded to protect against: <b>point of operation, in-running nip points, rotating parts, and flying chips/sparks.</b> Hand-held power tools above a size threshold (e.g. drills, grinders &gt;2 in. diameter) must have a <b>constant-pressure switch</b> that cuts power when released; smaller tools may use a "lock-on" control instead.</p>
+
+<h3 class="sub-h">By Power Source</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap a tool type</div>
+<div class="tabs" id="toolTabs">
+<button data-t="electric" class="active">Electric</button><button data-t="abrasive">Abrasive Wheel</button><button data-t="pneumatic">Pneumatic</button><button data-t="liquid">Liquid Fuel</button><button data-t="powder">Powder-Actuated</button><button data-t="hydraulic">Hydraulic</button>
+</div>
+<div class="info-panel" id="toolInfo"></div>
+</div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: State the five basic safety rules for hand and power tools, and explain the main hazard associated with powder-actuated tools.</p>
+<div class="qa-answer">The five rules: keep tools in good condition, use the right tool for the job, inspect before use and discard damaged tools, follow manufacturer instructions, and use proper PPE. Powder-actuated tools "operate like a loaded gun" — they must be operated only by specially trained employees, require two separate motions to fire (reducing accidental discharge), and must never be pointed at anyone or left loaded and unattended.</div>
+<div class="qa-meta">📍 See Topic 10 → Five Basic Safety Rules / Powder-Actuated Tools</div></div>
+</section>
+
+<!-- TOPIC 11 -->
+<section class="topic" id="t11" data-kw="electronic document security encryption decryption cryptography symmetric asymmetric digital signature pki certificate">
+<div class="topic-eyebrow">Topic 11 <span class="lecturer-chip">Dr M.O Folami</span></div>
+<h2>Electronic Document Security</h2>
+<p class="dek">Encryption, digital signatures and PKI — the technical core of this course.</p>
+
+<h3 class="sub-h">Why Document Security Matters (as supplied)</h3>
+<ol class="keypts">
+<li><b>Regulatory requirements</b> — government mandates for consumer privacy.</li>
+<li><b>Return on investment (ROI)</b> — automated workflows save cost, but can't be automated until the document itself is protected.</li>
+<li><b>Information security</b> — theft of proprietary information damages revenue, competitive advantage and reputation.</li>
+</ol>
+<p>Six criteria define <b>persistent document security</b>: <b>Confidentiality, Authorization, Accountability, Integrity, Authenticity, Non-repudiation.</b></p>
+
+<h3 class="sub-h">Interactive: Symmetric vs. Asymmetric Encryption</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Compare the two key types</div>
+<div class="tabs" id="cryptoTabs">
+<button data-t="sym" class="active">Symmetric Keys</button><button data-t="asym">Asymmetric Keys</button><button data-t="hybrid">Hybrid</button>
+</div>
+<div class="info-panel" id="cryptoInfo"></div>
+</div>
+<div class="plain-box"><span class="tag plain">Plain English</span><b>Kerckhoff's principle:</b> a cryptosystem should stay secure even if everyone knows how it works — the only thing that must stay secret is the key.</div>
+
+<h3 class="sub-h">Interactive: How a Digital Signature Is Created</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Play / Step through the process</div>
+<p class="wnote">Digital signatures use asymmetric keys in reverse — the author's <i>private</i> key encrypts, and everyone's copy of the author's <i>public</i> key verifies.</p>
+<div class="flow" id="sigFlow"></div>
+<div class="btnrow">
+  <button id="sigPlay">▶ Play</button>
+  <button id="sigStep" class="secondary">⏭ Step</button>
+  <button id="sigReset" class="secondary">↺ Reset</button>
+</div>
+<div class="info-panel" id="sigInfo">Press Play or Step to begin.</div>
+</div>
+
+<h3 class="sub-h">Document Control — 3 Pillars (as supplied)</h3>
+<table><tr><th>Pillar</th><th>Key mechanisms</th></tr>
+<tr><td><b>1. Confidentiality</b></td><td>Encryption (symmetric, asymmetric, hybrid)</td></tr>
+<tr><td><b>2. Authorization</b></td><td>Permissions (print/copy/sign/forward); dynamic document control (expiration/revocation, offline access limits, persistent version control)</td></tr>
+<tr><td><b>3. Accountability</b></td><td>Document auditing — how, how often, and when a document was used, with automatic usage notifications</td></tr>
+</table>
+
+<h3 class="sub-h">Digital Signatures: Integrity, Authenticity, Non-repudiation</h3>
+<table><tr><th>Requirement</th><th>How it's achieved</th></tr>
+<tr><td>Integrity</td><td>One-way hash (MD5, SHA-1, SHA-256) or Message Authentication Code (MAC/HMAC) — detects alteration</td></tr>
+<tr><td>Authenticity</td><td>Author's hash is encrypted with their private key; only their public key can correctly decrypt and verify it</td></tr>
+<tr><td>Non-repudiation</td><td>Supported by authentication and time-stamping (often via PKI) so the signer cannot deny signing</td></tr>
+</table>
+
+<h3 class="sub-h">Public Key Infrastructure (PKI)</h3>
+<p>PKI provides a <b>digital certificate</b> binding a person/entity to a public key, issued by a <b>Certificate Authority (CA)</b> (standard: <b>X.509</b>). Validity is checked via a <b>Certificate Revocation List (CRL)</b> or the <b>Online Certificate Status Protocol (OCSP)</b>. Other PKI components: PKCS (standard protocols), registration authority (background checks), certificate repository, key update/backup/recovery, cross-certification, and time stamping.</p>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Distinguish between symmetric and asymmetric key encryption, and explain why a hybrid approach is often used.</p>
+<div class="qa-answer">Symmetric key cryptography uses the same key for encryption and decryption — it is fast and strong with large keys, but key distribution is a problem since both parties need the same secret key (e.g. AES, DES, 3DES, RC4). Asymmetric (public key) cryptography uses a key pair — a public key anyone can use to encrypt, and a private key only the owner holds to decrypt — solving the distribution problem but running slower for equivalent strength (e.g. RSA, DSA). A hybrid approach uses the asymmetric keys to protect a symmetric key, then uses that fast symmetric key to encrypt the actual document — combining the security of asymmetric distribution with the speed of symmetric encryption.</div>
+<div class="qa-meta">📍 See Topic 11 → Symmetric vs. Asymmetric Encryption</div></div>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Describe the three steps involved in creating a digital signature, and explain what PKI adds to this process.</p>
+<div class="qa-answer">(1) A hash of the original document is created. (2) The digital signature is created by encrypting that hash with the signer's private key. (3) The signature is attached to the document. A recipient decrypts it with the signer's public key and compares it against a fresh hash of the received document — a match confirms both integrity and authenticity. PKI adds trust: a Certificate Authority issues a digital certificate (X.509 standard) binding the public key to a verified identity, and recipients can check the certificate's validity via a CRL or OCSP.</div>
+<div class="qa-meta">📍 See Topic 11 → How a Digital Signature Is Created / PKI</div></div>
+</section>
+
+<!-- TOPIC 12 -->
+<section class="topic" id="t12" data-kw="protecting your resources threat active passive risk assessment twelve layers malware">
+<div class="topic-eyebrow">Topic 12 <span class="lecturer-chip">Dr M.O Folami</span></div>
+<h2>Electronic Security: Protecting Your Resources</h2>
+<p class="dek">Threat categories, the twelve layers of e-security, and ways to assess risk.</p>
+
+<h3 class="sub-h">Three Main Areas of Electronic Threat (as supplied)</h3>
+<ol class="keypts">
+<li><b>Unauthorized External Access</b> — targets financial details, intellectual property, trade secrets, confidential information.</li>
+<li><b>Unauthorized Internal Activities</b> — trusted users disclosing valuable/confidential information, maliciously or unintentionally; often goes unnoticed since the user is acting within their assigned access level.</li>
+<li><b>Malware</b> — viruses, worms, trojans, spyware, backdoors, rootkits; risk intensified by irresponsible or unaware staff.</li>
+</ol>
+
+<h3 class="sub-h">2007 CSI Survey Findings (as supplied)</h3>
+<table><tr><th>Finding</th><th>Figure</th></tr>
+<tr><td>Detected a security breach in past 12 months</td><td>46%</td></tr>
+<tr><td>Had more than 10 incidents</td><td>26%</td></tr>
+<tr><td>Average annual loss reported</td><td>&gt;$350,000</td></tr>
+<tr><td>Detected employee abuse of Internet access</td><td>59%</td></tr>
+<tr><td>Detected computer viruses</td><td>52%</td></tr>
+<tr><td>Reported a targeted attack</td><td>18%</td></tr>
+<tr><td>Overall cost of financial fraud</td><td>&gt;$20,000,000</td></tr>
+<tr><td>Reported intrusions to law enforcement</td><td>29%</td></tr>
+</table>
+
+<h3 class="sub-h">Active vs. Passive Security</h3>
+<div class="plain-box"><span class="tag plain">Plain English</span><b>Active</b> security prevents a breach (e.g. installing a blocking application). <b>Passive</b> security monitors the system against the security model (e.g. reviewing server logs). The two strengthen each other.</div>
+
+<h3 class="sub-h">Five Ways to Assess Risk (as supplied)</h3>
+<ul class="keypts">
+<li><b>Quantitative risk assessment</b> — threat frequency × loss amount vs. asset value (figures are often subjective)</li>
+<li><b>Best practices</b> — adopting accepted baselines (e.g. ISO17799, GASSP) to avoid a formal risk analysis</li>
+<li><b>Scenario analysis</b> — building mitigation plans for likely compromise scenarios</li>
+<li><b>Cost-benefit analysis</b> — weighing security cost against the value of the protected asset</li>
+<li><b>Insuring all risks</b> — insurance as the solution when a full security build-out isn't affordable</li>
+</ul>
+
+<h3 class="sub-h">Interactive: The Twelve Layers of E-Security (from Topic 6/Pillar 4)</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap each layer</div>
+<p class="wnote">These twelve layers — recommended as best practice under a CISO's responsibility — tie together everything covered across Topics 1, 6 and 12.</p>
+<div class="layer-grid" id="layerGrid"></div>
+<div class="info-panel" id="layerInfo">Tap a layer above for detail.</div>
+</div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Distinguish between the three main areas of electronic threat, with an example of each.</p>
+<div class="qa-answer">Unauthorized external access comes from outside the organization's network (e.g. a hacker targeting trade secrets over the Internet). Unauthorized internal activities come from trusted users who disclose confidential information, deliberately or by accident, often undetected because they are acting within their normal access rights. Malware is malicious software (viruses, worms, trojans, spyware, backdoors, rootkits) that infects systems connected to an external network, with risk worsened by careless or untrained staff.</div>
+<div class="qa-meta">📍 See Topic 12 → Three Main Areas of Electronic Threat</div></div>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Compare active and passive approaches to electronic security, and explain why both are needed.</p>
+<div class="qa-answer">An active approach covers actions designed to prevent a breach (e.g. deploying an application that blocks misuse once detected). A passive approach monitors the system against its security model (e.g. reviewing server logs with a tool like WebSpy). They strengthen each other: passive monitoring supplies the evidence (e.g. a user abusing resources) that justifies an active response (e.g. installing a restriction).</div>
+<div class="qa-meta">📍 See Topic 12 → Active vs. Passive Security</div></div>
+</section>
+
+<!-- EXAM BANK -->
+<section class="topic" id="bank" data-kw="exam question bank final revision">
+<div class="topic-eyebrow">📋 Revision</div>
+<h2>Final Exam Question Bank</h2>
+<p style="font-size:12.5px;color:var(--text2)">All questions below are APEXHUB-generated practice questions based on the material's emphasis — not confirmed past-exam questions, unless marked "as supplied."</p>
+<ul class="keypts">
+<li><a href="#t2">Topic 2 — Scale of electronic crime &amp; under-reporting</a></li>
+<li><a href="#t3">Topic 3 — Systemic vs. operational risk</a></li>
+<li><a href="#t6">Topic 6 — G-8's eleven principles (any four)</a></li>
+<li><a href="#t7">Topic 7 — Security vs. technological innovation tradeoff</a></li>
+<li><a href="#t9">Topic 9 — Opt-in vs. opt-out privacy consent</a></li>
+<li><a href="#t10">Topic 10 — Five basic tool safety rules &amp; powder-actuated tools</a></li>
+<li><a href="#t11">Topic 11 — Symmetric vs. asymmetric encryption</a></li>
+<li><a href="#t11">Topic 11 — Digital signature creation &amp; PKI</a></li>
+<li><a href="#t12">Topic 12 — Three areas of electronic threat</a></li>
+<li><a href="#t12">Topic 12 — Active vs. passive security</a></li>
+</ul>
+</section>
+
+</main>
+<button class="top-link" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<footer>Electronic Security — Course Notes (Topics 1–12) · Lecturers: Ms G.H Adeoba · Mrs O.O Akande · Mr O.I Olatunde · Dr M.O Folami · Compiled by APEXHUB. Source material is the authority — this guide organises and distils it, it does not replace it.</footer>
+
+<script>
+(function(){
+var themeBtn=document.getElementById('theme-btn'),root=document.documentElement;
+function apply(t){if(t){root.setAttribute('data-theme',t)}else{root.removeAttribute('data-theme')}}
+try{apply(localStorage.getItem('apexhub-theme'))}catch(e){}
+themeBtn.addEventListener('click',function(){
+  var cur=root.getAttribute('data-theme');
+  var next=cur==='dark'?'light':(cur==='light'?null:(window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));
+  apply(next); try{localStorage.setItem('apexhub-theme',next||'')}catch(e){}
+});
+var nav=document.getElementById('topic-nav');
+document.querySelectorAll('main .topic').forEach(function(sec,i){
+  var a=document.createElement('a');a.href='#'+sec.id;
+  a.textContent=sec.id==='bank'?'Exam Bank':'Topic '+sec.id.replace('t','');
+  nav.appendChild(a);
+});
+var search=document.getElementById('search'),sections=Array.prototype.slice.call(document.querySelectorAll('main .topic'));
+search.addEventListener('input',function(){var q=this.value.trim().toLowerCase();sections.forEach(function(sec){var kw=(sec.dataset.kw||'')+' '+sec.textContent.toLowerCase();sec.classList.toggle('hidden',q.length>1&&kw.indexOf(q)===-1);});});
+
+// Four Pillars widget
+var pillars=[
+ {t:'Pillar 1',n:'Legal, Regulatory & Enforcement',d:'Strengthening the overall legal, regulatory, and enforcement framework within and across countries — including Electronic Transactions Law, Payment Systems Security Law, Privacy Law, Cyber Crime Law, and Anti-Money Laundering Laws, plus cross-border enforcement.'},
+ {t:'Pillar 2',n:'Improving Monitoring',d:'Improving external monitoring of e-security risks: better technology supervision (on/off-site), monitoring by private insurance companies, and improving education about these risks among final users and consumers.'},
+ {t:'Pillar 3',n:'Public-Private Partnerships',d:'Establishing public/private partnerships within and across countries: improving the basic database for e-security incident information worldwide, and harmonizing certification processes and standards while allowing for rapid technological change.'},
+ {t:'Pillar 4',n:'Internal Monitoring & Incentives',d:'Strengthening internal monitoring by clearly identifying business objectives that link the cost of not securing a business to the potential savings from e-security — includes the Twelve Layers of E-Security under a CISO.'}
+];
+var pg=document.getElementById('pillarGrid'),pInfo=document.getElementById('pillarInfo');
+pillars.forEach(function(p,i){
+  var el=document.createElement('div');el.className='pillar-card';el.innerHTML='<b>'+p.t+'</b><br>'+p.n;
+  el.addEventListener('click',function(){
+    document.querySelectorAll('#pillarGrid .pillar-card').forEach(function(x){x.classList.remove('active')});
+    el.classList.add('active'); pInfo.innerHTML='<b>'+p.t+' — '+p.n+':</b> '+p.d;
+  });
+  pg.appendChild(el);
+});
+
+// G8 principles stepper
+var g8=[
+ 'I. Countries should have emergency warning networks regarding cyber vulnerabilities, threats, and incidents.',
+ 'II. Countries should raise awareness to facilitate stakeholders\' understanding of the nature and extent of their critical information infrastructures, and the role each must play in protecting them.',
+ 'III. Countries should examine their infrastructures and identify interdependencies among them, thereby enhancing protection of such infrastructures.',
+ 'IV. Countries should promote partnerships among stakeholders, both public and private, to share and analyze critical infrastructure information in order to prevent, investigate, and respond to damage to or attacks on such infrastructures.',
+ 'V. Countries should create and maintain crisis communication networks and test them to ensure that they will remain secure and stable in emergency situations.',
+ 'VI. Countries should ensure that data availability policies take into account the need to protect critical information infrastructures.',
+ 'VII. Countries should facilitate tracing attacks on critical information infrastructures and, where appropriate, the disclosure of tracing information to other countries.',
+ 'VIII. Countries should conduct training and exercises to enhance their response capabilities and to test continuity and contingency plans in the event of an information infrastructure attack.',
+ 'IX. Countries should ensure that they have adequate substantive and procedural laws (such as the Council of Europe Cybercrime Convention, 23 November 2001) and trained personnel to investigate and prosecute attacks on critical information infrastructures.',
+ 'X. Countries should engage in international cooperation to secure critical information infrastructures, including developing emergency warning systems and sharing information on vulnerabilities, threats and incidents.',
+ 'XI. Countries should promote national and international research and development and encourage the application of security technologies certified according to international standards.'
+];
+var g8i=0,g8Info=document.getElementById('g8Info');
+function showG8(){g8Info.innerHTML='<b>Principle '+(g8i+1)+' of '+g8.length+':</b> '+g8[g8i];}
+document.getElementById('g8Next').addEventListener('click',function(){g8i=(g8i+1)%g8.length;showG8();});
+document.getElementById('g8Prev').addEventListener('click',function(){g8i=(g8i-1+g8.length)%g8.length;showG8();});
+showG8();
+
+// Tool safety tabs
+var toolData={
+ electric:{title:'Electric Tools',text:'Major hazards: electrical burns and shocks, which can cause heart fibrillation, death, or falls from elevated surfaces. Tools must have a three-wire grounded cord, be double-insulated, or run on a low-voltage isolation transformer. Never remove the third (ground) prong. Store in a dry place; do not use in damp/wet locations unless rated for it.'},
+ abrasive:{title:'Portable Abrasive Wheel Tools',text:'Create flying-fragment hazards. Guards must cover the spindle end, nut and flange, maintain alignment, and not exceed fastening strength. Before mounting, inspect and ring-test the wheel (tap gently — a clear metallic tone means it\'s sound; a dead/cracked sound means do not use). Never stand in the plane of rotation as the wheel accelerates to full speed.'},
+ pneumatic:{title:'Pneumatic Tools',text:'Powered by compressed air (chippers, drills, hammers, sanders). Main danger: being hit by an attachment or fastener. Tools must be securely fastened to the air hose with a safety clip/retainer and, for hoses over 1/2 inch diameter, a safety excess-flow valve at the air source. Compressed air guns must never be pointed at anyone or "dead-ended" against a person. Noise requires hearing protection.'},
+ liquid:{title:'Liquid Fuel Tools',text:'Usually gasoline-powered. Most serious hazard: fuel vapours that can burn/explode, plus dangerous exhaust fumes. Shut down and let the engine cool before refuelling. If used in a closed area, effective ventilation and/or atmosphere-supplying respirators are required, with fire extinguishers on hand.'},
+ powder:{title:'Powder-Actuated Tools',text:'Operate like a loaded gun — only specially trained employees may use them, wearing ear, eye and face protection. Require two separate motions to fire (positioning, then trigger) to prevent accidental discharge, plus a muzzle guard. Must press against the work surface with at least 5 lbs of force beyond the tool\'s weight before firing. A misfire requires holding position for 30 seconds before retrying.'},
+ hydraulic:{title:'Hydraulic Power Tools & Jacks',text:'Fluid must be approved fire-resistant type (except insulated sections of derrick trucks/aerial lifts near energized lines, which need insulating fluid). All jacks need a stop indicator and a permanently marked load limit that must never be exceeded. A jack must never be used to support a lifted load — block it up immediately once lifted. Inspect every 6 months (continuous use), when sent out/returned, or immediately after abnormal loads.'}
+};
+document.querySelectorAll('#toolTabs button').forEach(function(btn){btn.addEventListener('click',function(){
+  document.querySelectorAll('#toolTabs button').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');
+  var d=toolData[btn.dataset.t];
+  document.getElementById('toolInfo').innerHTML='<b>'+d.title+':</b> '+d.text;
+});});
+document.getElementById('toolInfo').innerHTML='<b>'+toolData.electric.title+':</b> '+toolData.electric.text;
+
+// Crypto tabs
+var cryptoData={
+ sym:{title:'Symmetric Keys',text:'Same key encrypts and decrypts. Fast, difficult to break with large keys, but key distribution is a problem since both parties need the shared secret. Common algorithms: AES, DES, 3DES, RC4. Adobe uses AES (128-/256-bit) and RC4 (128-bit).'},
+ asym:{title:'Asymmetric (Public) Keys',text:'Uses a key pair — one encrypts, the other decrypts. The private key stays secret; the public key is freely distributed. Solves key distribution but runs slower for equivalent strength. Common algorithms: RSA, DSA, El Gamal. Adobe uses RSA (512-/1024-/2048-bit).'},
+ hybrid:{title:'Hybrid Encryption',text:'Uses asymmetric keys to protect a symmetric key, then uses that symmetric key to encrypt the actual document — combining fast symmetric encryption with the easier key distribution of asymmetric cryptography. A single document can be protected for multiple recipients without re-encrypting the whole document for each one.'}
+};
+document.querySelectorAll('#cryptoTabs button').forEach(function(btn){btn.addEventListener('click',function(){
+  document.querySelectorAll('#cryptoTabs button').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');
+  var d=cryptoData[btn.dataset.t];
+  document.getElementById('cryptoInfo').innerHTML='<b>'+d.title+':</b> '+d.text;
+});});
+document.getElementById('cryptoInfo').innerHTML='<b>'+cryptoData.sym.title+':</b> '+cryptoData.sym.text;
+
+// Digital signature flow (play/step)
+var sigSteps=[
+ {label:'Original Document',info:'Start: the author has a document they want to sign, e.g. a quarterly financial statement.'},
+ {label:'Create Hash',info:'Step 1: A one-way hash (e.g. SHA-256) is created from the original document — a fixed-length "fingerprint" of its content.'},
+ {label:'Encrypt Hash (Private Key)',info:'Step 2: The digital signature is created by encrypting the hash with the author\'s PRIVATE key. Only the author holds this key.'},
+ {label:'Attach to Document',info:'Step 3: The signature is attached to and sent with the document.'},
+ {label:'Recipient Verifies (Public Key)',info:'Verification: the recipient decrypts the signature with the author\'s PUBLIC key, recomputes the hash of the received document, and compares the two. A match proves integrity (not altered) and authenticity (really from the author) — and because only the author\'s private key could have created a signature the public key resolves correctly, the author cannot deny signing (non-repudiation).'}
+];
+var sigEl=document.getElementById('sigFlow'),sigInfo=document.getElementById('sigInfo'),sigIdx=-1,sigTimer=null;
+sigSteps.forEach(function(s,i){
+  var step=document.createElement('div');step.className='flow-step';step.textContent=s.label;sigEl.appendChild(step);
+  if(i<sigSteps.length-1){var arrow=document.createElement('div');arrow.className='flow-arrow';arrow.textContent='→';sigEl.appendChild(arrow);}
+});
+function renderSig(){
+  var steps=sigEl.querySelectorAll('.flow-step');
+  steps.forEach(function(st,i){st.classList.toggle('active',i===sigIdx);});
+  if(sigIdx<0){sigInfo.textContent='Press Play or Step to begin.';}
+  else{sigInfo.innerHTML='<b>'+sigSteps[sigIdx].label+':</b> '+sigSteps[sigIdx].info;}
+}
+function sigStep(){sigIdx=(sigIdx+1)%sigSteps.length;renderSig();}
+document.getElementById('sigStep').addEventListener('click',function(){clearInterval(sigTimer);sigTimer=null;sigStep();});
+document.getElementById('sigReset').addEventListener('click',function(){clearInterval(sigTimer);sigTimer=null;sigIdx=-1;renderSig();});
+document.getElementById('sigPlay').addEventListener('click',function(){
+  if(sigTimer){clearInterval(sigTimer);sigTimer=null;return;}
+  sigTimer=setInterval(function(){
+    sigIdx++;
+    if(sigIdx>=sigSteps.length){clearInterval(sigTimer);sigTimer=null;sigIdx=sigSteps.length-1;renderSig();return;}
+    renderSig();
+  },1400);
+});
+renderSig();
+
+// Twelve layers
+var layers=[
+ 'Risk management frameworks broader than operational risk and business continuity alone.',
+ 'Cybernetic intelligence to provide antecedent analysis of threats and vulnerabilities.',
+ 'Carefully designed access controls and authentication on a multilevel basis, using more than one authentication technology.',
+ 'Firewalls implementing boundaries between networks.',
+ 'Active content filtering at the application level.',
+ 'Implementation of adequate intrusion detection systems.',
+ 'Virus scanners to limit entry of malicious code and worms.',
+ 'Strong encryption so that messaging can proceed with integrity.',
+ 'Vulnerability and penetration testing, with required remediation and reporting.',
+ 'Proper systems administration.',
+ 'Policy management software to control issues such as employee computer usage.',
+ 'An explicit business continuity / incident response plan for rapid recovery after a security incident.'
+];
+var lg=document.getElementById('layerGrid'),lInfo=document.getElementById('layerInfo');
+layers.forEach(function(txt,i){
+  var el=document.createElement('div');el.className='layer-item';
+  el.innerHTML='<div class="layer-num">'+(i+1)+'</div><div>'+txt.split('.')[0]+'...</div>';
+  el.addEventListener('click',function(){lInfo.innerHTML='<b>Layer '+(i+1)+':</b> '+txt;});
+  lg.appendChild(el);
+});
+})();
+</script>
+</body>
+</html>
+
+</body></html>
